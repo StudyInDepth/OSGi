@@ -1,0 +1,65 @@
+<filter>
+    <filter-name>UserLoginFilter</filter-name>
+    <filter-class>postgraduatems.web.filters.UserLoginFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>UserLoginFilter</filter-name>
+    <url-pattern>/login</url-pattern>
+</filter-mapping>
+
+<servlet>
+    <servlet-name>LecturerDetailServlet</servlet-name>
+    <servlet-class>postgraduatems.web.servlets.lecturer.LecturerDetailServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>LecturerDetailServlet</servlet-name>
+    <url-pattern>/lecturer/detail</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>PostgraduateDetailServlet</servlet-name>
+    <servlet-class>postgraduatems.web.servlets.PostgraduateDetailServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>PostgraduateDetailServlet</servlet-name>
+    <url-pattern>/postgraduate/detail</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>PostgraduatesListServlet</servlet-name>
+    <servlet-class>postgraduatems.web.servlets.PostgraduateListServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>PostgraduatesListServlet</servlet-name>
+    <url-pattern>/postgraduate/list</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+    <servlet-name>LecturerListServlet</servlet-name>
+    <servlet-class>postgraduatems.web.servlets.lecturer.LecturerListServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>LecturerListServlet</servlet-name>
+    <url-pattern>/lecturer/list</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>postgraduatems.web.servlets.postgraduate.Upload</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/view/postgraduate/UploadServlet</url-pattern>
+</servlet-mapping>
+
+<filter>
+    <filter-name>LecturerFilter</filter-name>
+    <filter-class>postgraduatems.web.filters.LecturerFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>LecturerFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>

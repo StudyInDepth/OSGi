@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+First install the MySQL driver using:
+> install -s mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.stax-api-1.0/1.9.0
+> install -s mvn:mysql/mysql-connector-java/5.1.18
+
+Then copy this file to the deploy folder
+-->
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+  
+	<bean id="mysqlDataSource" class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/postgradms"/>
+		<property name="user" value="osgi"/>
+		<property name="password" value="123"/>
+		
+	</bean>
+  <!-- XADatasource supports transactions -->
+	<bean id="mysqlXADataSource" class="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/postgradms"/>
+		<property name="user" value="osgi"/>
+		<property name="password" value="123"/>
+	</bean>
+  
+  <service interface="javax.sql.DataSource" ref="mysqlXADataSource">
+		<service-properties>
+            <entry key="osgi.jndi.service.name" value="jdbc/postgradms_jta"/>
+		</service-properties>
+	</service>
+  
+	<service interface="javax.sql.DataSource" ref="mysqlDataSource">
+		<service-properties>
+            <entry key="osgi.jndi.service.name" value="jdbc/postgradms_non_jta"/>
+		</service-properties>
+	</service>
+	
+	
+</blueprint>

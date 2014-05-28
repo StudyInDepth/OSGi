@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>deploy</groupId>
+    <artifactId>deploy</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-bundles</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <!--  Our bundles which need to be deployed -->
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>api</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>lecturer</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>datasource</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>postgraduate</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>user</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>department</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+
+
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>seminar</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>Persistence</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>thesis</artifactId>
+                                    <version>1.0.0</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>postgraduatems</groupId>
+                                    <artifactId>web</artifactId>
+                                    <version>1.0.0</version>
+                                    <type>war</type>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>F:\Tools\apache-servicemix-4.5.3\deploy</outputDirectory>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

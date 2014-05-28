@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="Osmorc" url="file://$PROJECT_DIR$/api" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/datasource" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/department" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/lecturer" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/Persistence" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/postgraduate" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/seminar" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/thesis" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/user" />
+    <file type="web" url="file://$PROJECT_DIR$/web" />
+  </component>
+  <component name="IdProvider" IDEtalkID="AABB69EC2B591F9F9396EB349464EAD8" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/deparment/pom.xml" />
+        <option value="$PROJECT_DIR$/dept/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+</project>
+

@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: web-postgradms
+Bundle-Version: 1.0.0
+Bundle-ClassPath: WEB-INF/classes
+Web-ContextPath: /
+Import-Package: javax.naming,
+ javax.servlet;version="[2.5, 3.0)",
+ javax.servlet.http;version="[2.5, 3.0)",
+ postgraduatems.persistence.services;version="[1.0.0, 3.0.0)",
+ postgraduatems.persistence.entities;version="[1.0.0, 3.0.0)",
+ postgraduatems.postgraduate.services;version="[1.0.0, 3.0.0)",
+ postgraduatems.lecturer.services;version="[1.0.0, 3.0.0)",
+ postgraduatems.user.services;version="[1.0.0, 3.0.0)",
+ postgraduatems.thesis.services;version="[1.0.0, 3.0.0)",
+ postgraduatems.seminar.services;version="[1.0.0, 3.0.0)",
+ postgraduatems.department.services;version="[1.0.0, 3.0.0)",
+ org.apache.commons.fileupload,
+ org.apache.commons.fileupload.disk,
+ org.apache.commons.fileupload.servlet,
+ org.apache.commons.io.output
+

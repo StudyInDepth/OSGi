@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Persistence/Persistence.iml" filepath="$PROJECT_DIR$/Persistence/Persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datasource/datasource.iml" filepath="$PROJECT_DIR$/datasource/datasource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/department/department.iml" filepath="$PROJECT_DIR$/department/department.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lecturer/lecturer.iml" filepath="$PROJECT_DIR$/lecturer/lecturer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/postgraduate/postgraduate.iml" filepath="$PROJECT_DIR$/postgraduate/postgraduate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/postgraduatems.iml" filepath="$PROJECT_DIR$/postgraduatems.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seminar/seminar.iml" filepath="$PROJECT_DIR$/seminar/seminar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thesis/thesis.iml" filepath="$PROJECT_DIR$/thesis/thesis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user/user.iml" filepath="$PROJECT_DIR$/user/user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
+    </modules>
+  </component>
+</project>
+

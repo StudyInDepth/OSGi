@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+    <context-param>
+        <description>Location to store uploaded file</description>
+        <param-name>file-upload</param-name>
+        <param-value>
+            F:\github\he-thong-dang-ki-luan-van-cao-hoc_dev\data\
+        </param-value>
+    </context-param>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+    <!-- Login and Logout -->
+
+    <servlet>
+        <servlet-name>UserLogoutServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.UserLogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserLogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.UserLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserLoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- Role's permission filters -->
+    <filter>
+        <filter-name>PostgraduateFilter</filter-name>
+        <filter-class>postgraduatems.web.filters.PostgraduateFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PostgraduateFilter</filter-name>
+        <url-pattern>/postgraduate/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>LecturerFilter</filter-name>
+        <filter-class>postgraduatems.web.filters.LecturerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LecturerFilter</filter-name>
+        <url-pattern>/lecturer/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>PostgraduateFilter</filter-name>
+        <filter-class>postgraduatems.web.filters.PostgraduateFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PostgraduateFilter</filter-name>
+        <url-pattern>/postgraduate/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>DepartmentFilter</filter-name>
+        <filter-class>postgraduatems.web.filters.DepartmentFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DepartmentFilter</filter-name>
+        <url-pattern>/dept/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>FacultyFilter</filter-name>
+        <filter-class>postgraduatems.web.filters.FacultyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FacultyFilter</filter-name>
+        <url-pattern>/faculty/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Login filter -->
+
+    <filter>
+        <filter-name>UserLoginFilter</filter-name>
+        <filter-class>postgraduatems.web.filters.UserLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserLoginFilter</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
+        <filter-name>ViewFilter</filter-name>
+        <filter-class>postgraduatems.web.filters.ViewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ViewFilter</filter-name>
+        <url-pattern>/view/*</url-pattern>
+    </filter-mapping>
+
+   <!-- Postgraduate -->
+
+    <servlet>
+        <servlet-name>PostgraduateHomeServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.PostgraduateHomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostgraduateHomeServlet</servlet-name>
+        <url-pattern>/postgraduate/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LecturerDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.LecturerDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LecturerDetailServlet</servlet-name>
+        <url-pattern>/postgraduate/lecturer/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostgraduateDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.PostgraduateDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostgraduateDetailServlet</servlet-name>
+        <url-pattern>/postgraduate/postgraduate/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostgraduateListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.PostgraduateListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostgraduateListServlet</servlet-name>
+        <url-pattern>/postgraduate/postgraduate/list</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ThesisUpdateServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.ThesisUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisUpdateServlet</servlet-name>
+        <url-pattern>/postgraduate/thesis/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ThesisDescriptionUpload</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.ThesisDescriptionUpload</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisDescriptionUpload</servlet-name>
+        <url-pattern>/postgraduate/thesis/description/upload</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FileUploadForwarder</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.FileUploadForwarder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUploadForwarder</servlet-name>
+        <url-pattern>/postgraduate/thesis/description/file</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SeminarListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.SeminarListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SeminarListServlet</servlet-name>
+        <url-pattern>/postgraduate/seminar/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SeminarDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.SeminarDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SeminarDetailServlet</servlet-name>
+        <url-pattern>/postgraduate/seminar/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SeminarRegistrationServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.SeminarRegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SeminarRegistrationServlet</servlet-name>
+        <url-pattern>/postgraduate/seminar/register</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UserPostgraduateDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.UserPostgraduateDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserPostgraduateDetailServlet</servlet-name>
+        <url-pattern>/postgraduate/userpostgraduate/detail</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Test</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.Test</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Test</servlet-name>
+        <url-pattern>/postgraduate/test</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>PostgraduateSeminarSubCommitteeDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.postgraduate.SeminarSubCommitteeDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostgraduateSeminarSubCommitteeDetailServlet</servlet-name>
+        <url-pattern>/postgraduate/seminasubcommittee/detail</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
+
+    <!-- lect -->
+
+    <servlet>
+        <servlet-name>LecturerHomeServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.LecturerHomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LecturerHomeServlet</servlet-name>
+        <url-pattern>/lecturer/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LectPostgraduateListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.PostgraduateListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LectPostgraduateListServlet</servlet-name>
+        <url-pattern>/lecturer/postgraduate/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LectPostgraduateDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.PostgraduateDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LectPostgraduateDetailServlet</servlet-name>
+        <url-pattern>/lecturer/postgraduate/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LectLecturerDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.LecturerDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LectLecturerDetailServlet</servlet-name>
+        <url-pattern>/lecturer/lecturer/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LecturerListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.LecturerListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LecturerListServlet</servlet-name>
+        <url-pattern>/lecturer/lecturer/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GuidedPostgraduatesServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.GuidedPostgraduatesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GuidedPostgraduatesServlet</servlet-name>
+        <url-pattern>/lecturer/postgraduates/guide</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserLecturerDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.UserLecturerDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserLecturerDetailServlet</servlet-name>
+        <url-pattern>/lecturer/userlecturer/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LecturerSeminarSubCommitteeDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.SeminarSubCommitteeDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LecturerSeminarSubCommitteeDetailServlet</servlet-name>
+        <url-pattern>/lecturer/seminarsubcommittee/detail</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ReviewThesesServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.lecturer.ReviewThesesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReviewThesesServlet</servlet-name>
+        <url-pattern>/lecturer/theses/review</url-pattern>
+    </servlet-mapping>
+
+
+
+
+    <!-- faculty -->
+
+    <servlet>
+        <servlet-name>FacultyHomeServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.FacultyHomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacultyHomeServlet</servlet-name>
+        <url-pattern>/faculty/home</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FacPostgraduateListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.PostgraduateListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacPostgraduateListServlet</servlet-name>
+        <url-pattern>/faculty/postgraduate/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FacPostgraduateDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.PostgraduateDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacPostgraduateDetailServlet</servlet-name>
+        <url-pattern>/faculty/postgraduate/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FacLecturerDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.LecturerDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacLecturerDetailServlet</servlet-name>
+        <url-pattern>/faculty/lecturer/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FacLecturerListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.LecturerListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacLecturerListServlet</servlet-name>
+        <url-pattern>/faculty/lecturer/list</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ThesisAcceptanceServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.ThesisAcceptanceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisAcceptanceServlet</servlet-name>
+        <url-pattern>/faculty/thesis/accept</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>OpenSeminarForwarder</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.OpenSeminarForwarder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OpenSeminarForwarder</servlet-name>
+        <url-pattern>/faculty/seminar/open</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OpenSeminarServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.OpenSeminarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OpenSeminarServlet</servlet-name>
+        <url-pattern>/faculty/seminar/save</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SeminarPostgraduateListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.SeminarPostgraduateListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SeminarPostgraduateListServlet</servlet-name>
+        <url-pattern>/faculty/seminar/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OpenSeminarSubCommitteeServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.OpenSeminarSubCommitteeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OpenSeminarSubCommitteeServlet</servlet-name>
+        <url-pattern>/faculty/seminarsubcommittee/open</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddPostgraduateServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.AddPostgraduateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPostgraduateServlet</servlet-name>
+        <url-pattern>/faculty/postgraduate/add</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ThesisDescriptionVerificationServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.ThesisDescriptionVerificationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisDescriptionVerificationServlet</servlet-name>
+        <url-pattern>/faculty/thesis/verify</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditSeminarServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.EditSeminarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditSeminarServlet</servlet-name>
+        <url-pattern>/faculty/seminar/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PostgraduateSeminarSubCommitteeAssigningServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.PostgraduateSeminarSubCommitteeAssigningServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostgraduateSeminarSubCommitteeAssigningServlet</servlet-name>
+        <url-pattern>/faculty/seminarsubcommittee/assign</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FacultySeminarSubCommitteeDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.SeminarSubCommitteeDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FacultySeminarSubCommitteeDetailServlet</servlet-name>
+        <url-pattern>/faculty/seminarsubcommittee/detail</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>SeminarDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.SeminarDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SeminarDetailServlet</servlet-name>
+        <url-pattern>/faculty/seminar/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ThesisDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.ThesisDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisDetailServlet</servlet-name>
+        <url-pattern>/faculty/thesis/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ThesisReviewersAssigningServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.ThesisReviewersAssigningServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisReviewersAssigningServlet</servlet-name>
+        <url-pattern>/faculty/reviewers/assign</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StartedThesisListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.faculty.StartedThesisListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StartedThesisListServlet</servlet-name>
+        <url-pattern>/faculty/startedtheses/list</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- dept -->
+
+    <servlet>
+        <servlet-name>DepartmentHomeServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.dept.DepartmentHomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepartmentHomeServlet</servlet-name>
+        <url-pattern>/dept/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeptPostgraduateListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.dept.PostgraduateListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeptPostgraduateListServlet</servlet-name>
+        <url-pattern>/dept/postgraduate/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeptPostgraduateDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.dept.PostgraduateDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeptPostgraduateDetailServlet</servlet-name>
+        <url-pattern>/dept/postgraduate/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeptLecturerDetailServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.dept.LecturerDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeptLecturerDetailServlet</servlet-name>
+        <url-pattern>/dept/lecturer/detail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeptLecturerListServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.dept.LecturerListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeptLecturerListServlet</servlet-name>
+        <url-pattern>/dept/lecturer/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ThesisCommendationServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.dept.ThesisCommendationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisCommendationServlet</servlet-name>
+        <url-pattern>/dept/thesis/commend</url-pattern>
+    </servlet-mapping>
+
+
+
+    <!-- common-->
+
+    <servlet>
+        <servlet-name>ThesisDescriptionDownloadServlet</servlet-name>
+        <servlet-class>postgraduatems.web.servlets.ThesisDescriptionDownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ThesisDescriptionDownloadServlet</servlet-name>
+        <url-pattern>/common/thesis/download</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

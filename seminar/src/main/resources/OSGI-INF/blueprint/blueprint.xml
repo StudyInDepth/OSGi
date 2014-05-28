@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<blueprint default-activation="eager"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+    <reference id="seminarDAO" interface="postgraduatems.persistence.services.SeminarDAO"/>
+    <bean id="seminarBO" class="postgraduatems.seminar.services.impl.SeminarBOImpl" init-method="init">
+        <property name="dao" ref="seminarDAO"/>
+    </bean>
+    <service ref="seminarBO" interface="postgraduatems.seminar.services.SeminarBO"/>
+
+
+    <reference id="seminarSubCommitteeDAO" interface="postgraduatems.persistence.services.SeminarSubCommitteeDAO"/>
+
+    <bean id="seminarSubCommitteeBO" class="postgraduatems.seminar.services.impl.SeminarSubCommitteeBOImpl" init-method="init">
+        <property name="dao" ref="seminarSubCommitteeDAO"/>
+    </bean>
+    <service ref="seminarSubCommitteeBO" interface="postgraduatems.seminar.services.SeminarSubCommitteeBO"/>
+
+    <reference id="postgradDAO" interface="postgraduatems.persistence.services.PostgraduateDAO"/>
+
+    <bean id="seminarSubcommitteeAssigningBOImpl" class="postgraduatems.seminar.services.impl.SeminarSubcommitteeAssigningBOImpl" init-method="init">
+        <property name="dao" ref="postgradDAO"/>
+
+    </bean>
+
+    <service ref="seminarSubcommitteeAssigningBOImpl" interface="postgraduatems.seminar.services.SeminarSubcommitteeAssigningBO"/>
+
+
+</blueprint>

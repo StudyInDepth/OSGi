@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<blueprint  default-activation="eager" 
+            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:jpa="http://aries.apache.org/xmlns/jpa/v1.0.0"
+            xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.0.0">
+
+  <bean id="postgradDAOService" class="postgraduatems.persistence.services.impl.PostgraduateDAOImpl" init-method="init">
+      <jpa:context unitname="postgradms" property="entityManager"/>
+      <tx:transaction method="*" value="Required"/>
+  </bean>
+  
+  <service ref="postgradDAOService" interface="postgraduatems.persistence.services.PostgraduateDAO" />
+
+  <bean id="lecturerDAOService" class="postgraduatems.persistence.services.impl.LecturerDAOImpl" init-method="init">
+        <jpa:context unitname="postgradms" property="entityManager"/>
+        <tx:transaction method="*" value="Required"/>
+   </bean>
+  <service ref="lecturerDAOService" interface="postgraduatems.persistence.services.LecturerDAO" />
+
+    <bean id="userDAOService" class="postgraduatems.persistence.services.impl.UserDAOImpl" init-method="init">
+        <jpa:context unitname="postgradms" property="entityManager"/>
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service ref="userDAOService" interface="postgraduatems.persistence.services.UserDAO" />
+
+    <bean id="thesisDAOService" class="postgraduatems.persistence.services.impl.ThesisDAOImpl" init-method="init">
+        <jpa:context unitname="postgradms" property="entityManager"/>
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service ref="thesisDAOService" interface="postgraduatems.persistence.services.ThesisDAO" />
+
+    <bean id="seminarDAOService" class="postgraduatems.persistence.services.impl.SeminarDAOImpl" init-method="init">
+        <jpa:context unitname="postgradms" property="entityManager"/>
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service ref="seminarDAOService" interface="postgraduatems.persistence.services.SeminarDAO" />
+
+
+
+    <bean id="seminarSubCommitteeDAOService" class="postgraduatems.persistence.services.impl.SeminarSubCommitteeDAOImpl" init-method="init">
+        <jpa:context unitname="postgradms" property="entityManager"/>
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service ref="seminarSubCommitteeDAOService" interface="postgraduatems.persistence.services.SeminarSubCommitteeDAO" />
+
+
+    <bean id="departmentStaffDAOService" class="postgraduatems.persistence.services.impl.DepartmentStaffDAOImpl" init-method="init">
+        <jpa:context unitname="postgradms" property="entityManager"/>
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service ref="departmentStaffDAOService" interface="postgraduatems.persistence.services.DepartmentStaffDAO" />
+
+</blueprint>

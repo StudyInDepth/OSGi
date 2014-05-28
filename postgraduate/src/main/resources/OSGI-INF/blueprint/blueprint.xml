@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<blueprint default-activation="eager"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+
+    <reference id="postgradDAO" interface="postgraduatems.persistence.services.PostgraduateDAO"/>
+    <reference id="lecturerDAO" interface="postgraduatems.persistence.services.LecturerDAO"/>
+    <reference id="seminarDAO" interface="postgraduatems.persistence.services.SeminarDAO"/>
+
+
+    <bean id="postgradBO" class="postgraduatems.postgraduate.services.impl.PostgraduateBOImpl" init-method="init">
+        <property name="dao" ref="postgradDAO"/>
+    </bean>
+    <service ref="postgradBO" interface="postgraduatems.postgraduate.services.PostgraduateBO"/>
+
+
+    <bean id="thesisUpdateBO" class="postgraduatems.postgraduate.services.impl.ThesisUpdateBOImpl" init-method="init">
+        <property name="postgraduateDAO" ref="postgradDAO"/>
+        <property name="lecturerDAO" ref="lecturerDAO"/>
+    </bean>
+
+    <service ref="thesisUpdateBO" interface="postgraduatems.postgraduate.services.ThesisUpdateBO"/>
+
+
+    <bean id="editPostgraduateBO" class="postgraduatems.postgraduate.services.impl.EditPostgraduateBOImpl" init-method="init">
+        <property name="dao" ref="postgradDAO"/>
+    </bean>
+
+    <service ref="editPostgraduateBO" interface="postgraduatems.postgraduate.services.EditPostgraduateBO"/>
+
+    <bean id="seminarRegistrationBO" class="postgraduatems.postgraduate.services.impl.SeminarRegistrationBOImpl" init-method="init">
+        <property name="dao" ref="postgradDAO"/>
+
+    </bean>
+
+    <service ref="seminarRegistrationBO" interface="postgraduatems.postgraduate.services.SeminarRegistrationBO"/>
+
+
+
+
+</blueprint>
